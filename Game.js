@@ -58,7 +58,7 @@ export default class Game{
                     this.stateCur = GameState.ROOM1;
                 }
                 else if(sInput.toLowerCase().match("hall")){
-                    sReply = "You follow the hall around a corner and find two doors. Do you enter door ONE or TWO?;
+                    sReply = "You follow the hall around a corner and find two doors. Do you enter door ONE or TWO?";
                     this.stateCur = GameState.HALL1;
                 }
                 else if(sInput.toLowerCase().match("stairs")){
