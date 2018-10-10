@@ -1,6 +1,6 @@
 const GameState = Object.freeze({
-    WELCOMING:   Symbol("welcoming"),
-    START:  Symbol("start"),
+    WELCOMING: Symbol("welcoming"),
+    START: Symbol("start"),
     RUNNING: Symbol("running"),
     HOME: Symbol("home"),
     ENTRANCE: Symbol("entrance"),
@@ -27,10 +27,12 @@ export default class Game{
                 if(sInput.toLowerCase().match("run")){
                     sReply = "You pee your pants and run away crying.  Your friends are laughing at you.  Do you GO back or KEEP running?"
                     this.stateCur = GameState.RUNNING;
-                }else if(sInput.toLowerCase().match("enter")){
+                }
+                else if(sInput.toLowerCase().match("enter")){
                     sReply = "You open the door and enter.  The inside of the house is dark and it's hard to see.  You can make out a DOOR to the left, a HALL ahead of you and STAIRS to the right. Which way do you go??";
                     this.stateCur = GameState.
-                }else{
+                }
+                else{
                     sReply = "You stand there paralyzed with fear.  Do you RUN or ENTER?";
                 }
                 break;
@@ -88,6 +90,7 @@ export default class Game{
                 else if(sInput.toLowerCase().match("two")){
                     sReply = "On the otherside of this door is a kitchen.  ";
                 }
+                break;
         }
         return(sReply);
     }
