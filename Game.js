@@ -25,7 +25,7 @@ export default class Game{
                 break;
             case GameState.START:
                 if(sInput.toLowerCase().match("run")){
-                    sReply = "You pee your pants and run away crying.  Your friends are laughing at you.  Do you GO back or KEEP running?"
+                    sReply = "You pee your pants and run away crying.  Your friends are laughing at you.  Do you GO back or KEEP running?";
                     this.stateCur = GameState.RUNNING;
                 }
                 else if(sInput.toLowerCase().match("enter")){
@@ -56,7 +56,7 @@ export default class Game{
                 break;
             case GameState.ENTRANCE:
                 if(sInput.toLowerCase().match("door")){
-                    sReply = "You enter a room that's in tatters.  There are holes in the walls and floor.  You can see a door across the room, but there's a spider between you and the door.  You can AVOID the spider and go to the door, STEP on the spider, or TURN around.  What do you do?"
+                    sReply = "You enter a room that's in tatters.  There are holes in the walls and floor.  You can see a door across the room, but there's a spider between you and the door.  You can AVOID the spider and go to the door, STEP on the spider, or TURN around.  What do you do?";
                     this.stateCur = GameState.ROOM1;
                 }
                 else if(sInput.toLowerCase().match("hall")){
@@ -79,7 +79,7 @@ export default class Game{
                     sReply = "There are STAIRS, a HALL, and the DOOR behind you.  Where do you go?";
                     this.stateCur = GameState.ENTRANCE;     
                 }else {
-                    sReply = "You stand there paralyzed with fear, what do you do, AVOID, STEP or TURN";   
+                    sReply = "You stand there paralyzed with fear, what do you do, AVOID, STEP or TURN?";   
                 }
                 break;
             case GameState.HALL1:
