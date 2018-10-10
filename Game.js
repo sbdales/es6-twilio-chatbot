@@ -30,8 +30,8 @@ export default class Game{
                     this.stateCur = GameState.RUNNING;
                 }
                 else if(sInput.toLowerCase().match("enter")){
-                    sReply = "You open the door and enter.  The inside of the house is dark and it's hard to see.  You can make out a DOOR to the left, a HALL ahead of you and STAIRS to the right. Which way do you go??";
-                    this.stateCur = GameState.
+                    sReply = "You open the door and enter.  The inside of the house is dark and it's hard to see.  You can make out a DOOR to the left, a HALL ahead of you and STAIRS to the right. Which way do you go?";
+                    this.stateCur = GameState.ENTRANCE;
                 }
                 else{
                     sReply = "You stand there paralyzed with fear.  Do you RUN or ENTER?";
