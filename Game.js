@@ -86,7 +86,7 @@ export default class Game{
                     this.stateCur = GameState.DINNING;
                 }
                 else if(sInput.toLowerCase().match("two")){
-                    sReply = "On the otherside of this door is a kitchen.  "
+                    sReply = "On the otherside of this door is a kitchen.  ";
                 }
         }
         return(sReply);
