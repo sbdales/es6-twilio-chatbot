@@ -8,7 +8,12 @@ const GameState = Object.freeze({
     HALL1: Symbol("hall1"),
     HALL2: Symbol("hall2"),
     HALL3: Symbol("hall3"),
-    DINNING: Symbol("dinning")
+    DINNING: Symbol("dinning"),
+    KITCHEN: Symbol("kitchen"),
+    ROOM2: Symbol("room2"),
+    ROOM3: Symbol("room3"),
+    ROOM4: Symbol("room4"),
+    ROOM%: Symbol("room5")
 });
 
 export default class Game{
@@ -75,12 +80,16 @@ export default class Game{
                 else if(sInput.toLowerCase().match("stairs")){
                     sReply = "The stairs creek under foot as you ascend up.  You reach the top and find a hallway with four doors. Do you open door ONE, TWO, THREE or FOUR. Or do you go BACK downstairs?";
                     this.stateCur = GameState.HALL3;
-                }        
+                }
+                else
+                {
+                   sReply = "You stand paralyzed with fear, do you enter the DOOR, go down the HALL, or go up the STAIRS?";
+                }
                 break;
             case GameState.ROOM1:
-                if(sInput.toLowerCase().match("avoid"))
+                if(sInput.toLowerCase().match("AVOID"))
                 {
-                   sReply = "You avoid the spider, open the door and find a hallway.  In the hall, there are two doors and you can see the hall turns a corner.  Do you open door number ONE, TWO or FOLLOW the hall?";
+                   sReply = "You avoid the spider, open the door and find a hallway.  In the hall, there are two doors and you can see the hall turns a corner.  Do you open door number ONE, TWO, FOLLOW the hall, or go BACK?";
                    this.stateCur = GameState.HALL2;
                 }
                 else if(sInput.toLowerCase().match("step"))
@@ -98,16 +107,149 @@ export default class Game{
                 }
                 break;
             case GameState.HALL1:
+                if(sInput.toLowerCase().match(""))
+                {
+                    
+                }
+                else if(sinput.ToLowerCase().match(""))
+                {
+                
+                }
+                else
+                {
+                
+                }                
+            case GameState.HALL2:
                 if(sInput.toLowerCase().match("one"))
                 {
-                    sReply = "You open the door and find what once was a dinning room.  Now it's in ruin, There are holes in the floor and walls.  A table surrounded by chairs fills most of the room.  There is another door too. Do you SIT on a chair, go BACK of through the other DOOR?";
+                    sReply = "You open the door and find what once was a dinning room.  Now it's in ruin, There are holes in the floor and walls.  A table surrounded by chairs fills most of the room.  There is another door too. Do you SIT on a chair, go BACK or through the other DOOR?";
                     this.stateCur = GameState.DINNING;
                 }
                 else if(sInput.toLowerCase().match("two"))
                 {
-                    sReply = "On the otherside of this door is a kitchen.  ";
+                    sReply = "On the otherside of this door is a kitchen in shambles.  There is stuff covering the floor and counter. do you LOOT through the stuff or go BACK?";
+                    this.stateCur = GameState.KITCHEN;
+                }
+                else if(sInput.toLowerCase().match("follow"))
+                {
+                    sReply = "You return to the entrance of the house. Do you open the DOOR, take the STAIRS, return down the HALL or EXIT?";
+                    this.stateCur = GameState.ENTRANCE;
+                }
+                else if(sInput.toLowerCase().match("back"))
+                {
+                    sReply = "You Enter the room again jumping over the spider.  You can STEP on the spider, AVOID it to go to the hall or go BACK to the entrance";
+                    this.curState = GameState.ROOM1;
+                }
+                else
+                {
+                   sReply = "You stand there paralyzed with fear, do you open door ONE, door TWO, FOLLOW the hall or go BACK?";
                 }
                 break;
+            case GameState.DINNING:
+                if(sInput.toLowerCase().match("SIT"))
+                {
+                    sReply = "The chair breaks under you weight.  Do you SIT on another chair, go through the other DOOR, or go BACK";
+                }
+                else if(sinput.ToLowerCase().match("DOOR"))
+                {
+                    sReply = "On the otherside of this door is a kitchen in shambles.  There is stuff covering the floor and counter. do you LOOT through the stuff or go BACK?";
+                    this.stateCur = GameState.KITCHEN;                
+                }
+                else if(sinput.ToLowerCase().match("BACK"))
+                {
+                    sReply = "You are back in the hall.  You can go in door ONE, door TWO, FOLLOW the hall or BACK into the front room";
+                    this.stateCur = GameState.ROOM1;
+                }                
+                else
+                {
+                    sReply = "You stand there paralyzed with fear, do you SIT, open the DOOR, or go BACK?";
+                }
+            case GameState.HALL3:
+                if(sInput.toLowerCase().match("back"))
+                {
+                    sReply = "You return to the bottom of the stairs, There is the DOOR, a HALL, and some STAIRS where do you go?";
+                    this.stateCur = GameState.ENTRANCE;
+                }
+                else if(sInput.toLowerCase().match("one"))
+                {
+                    sReply = "You enter the room and see there is a large bee hive. You can POKE the hive, or LEAVE the room. Which do you do?";
+                    this.stateCur = GameState.ROOM2;
+                }
+                else if(sInput.toLowerCase().match("two"))
+                {
+                    sReply = "Once inside the door you see several bats hanging from the ceiling.  Something glitters on the far wall, do you CHECK it out or go BACK? ";
+                    this.stateCur = GameState.ROOM3;
+                }
+                else if(sInput.toLowerCase().match("three"))
+                {
+                    sReply = "In this small room you find some broken shelves and the remnents of books all over the place.  Do you SEARCH through the debris or go BACK to the hall?";
+                    this.stateCur = GameState.ROOM4;
+                }
+                else if(sInput.toLowerCase().match("four"))
+                {
+                    sReply = "You try to open this door but it is stuck.  Do you PUSH harder or GIVE up?";
+                    this.stateCur = GameState.ROOM5;
+                }
+                else
+                {
+                    sReply = "You stand there paralyzed with fear, do you open door ONE, TWO, THREE, FOUR, or go BACK?"; 
+                }
+            case GameState.ROOM2:
+                if(sInput.toLowerCase().match("poke"))
+                {
+                    sReply = "You poke the hive and some bees come out.  You get stung.  Do you POKE the hive again or LEAVE?";
+                }
+                else if(sinput.ToLowerCase().match("leave"))
+                {
+                    sReply = "You leave the room and are back in the hall.  You can open door ONE, TWO, THREE, FOUR or go BACK downstairs.";
+                    this.stateCur = GameState.HALL3;
+                }
+                else
+                {
+                
+                }
+            case GameState.ROOM3:
+                if(sInput.toLowerCase().match("check"))
+                {
+                    sReply = "The glitter disappears and then you see it on a different wall.  Do you CHECK it out or go BACK to the hall?";
+                }
+                else if(sinput.ToLowerCase().match("back"))
+                {
+                    sReply = "You leave the room and are back in the hall.  You can open door ONE, TWO, THREE, FOUR or go BACK downstairs.";
+                    this.stateCur = GameState.HALL3;
+                }
+                else
+                {
+                    sReply = "You stand there paralyzed with fear, do you CHECK out the glitter or go BACK?";
+                }
+            case GameState.ROOM4:
+                if(sInput.toLowerCase().match("search"))
+                {
+                    sReply = "You lift something and a mouse runs out.  You scream and drop what was in you hand.  Do you SEARCH more or go BACK to the hall?";
+                }
+                else if(sinput.ToLowerCase().match("back"))
+                {
+                    sReply = "You leave the room and are back in the hall.  You can open door ONE, TWO, THREE, FOUR or go BACK downstairs.";
+                    this.stateCur = GameState.HALL3;                
+                }
+                else
+                {
+                    sReply = "You stand there paralyzed with fear, do you SEARCH or go BACK to the hall";
+                }
+            case GameState.ROOM5:
+                if(sInput.toLowerCase().match("push"))
+                {
+                    sReply = "You push and the door doesn't move.  Do you PUSH harder or GIVE up";
+                }
+                else if(sinput.ToLowerCase().match("give"))
+                {
+                    sReply = "You give up on opening the door and face the hall.  You can open door ONE, TWO, THREE, FOUR or go BACK downstairs.";
+                    this.stateCur = GameState.HALL3;
+                }
+                else
+                {
+                
+                }
         }
         return(sReply);
     }
