@@ -80,11 +80,13 @@ export default class Game{
                     sReply = "You follow the hall.  You find a door and the hall continues around a corner. Do you open the DOOR, go around the CORNER or the the ENTRANCE?";
                     this.stateCur = GameState.HALL1;
                 }
-                else if(sInput.toLowerCase().match("stairs")){
+                else if(sInput.toLowerCase().match("stairs"))
+                {
                     sReply = "The stairs creek under foot as you ascend up.  You reach the top and find a hallway with four doors. Do you open door ONE, TWO, THREE or FOUR. Or do you go BACK downstairs?";
                     this.stateCur = GameState.HALL3;
                 }
-                else if (sInput.toLowerCase().match("EXIT")){
+                else if (sInput.toLowerCase().match("EXIT"))
+                {
                     sReply = "You leave the building and return to your friends.  They tease you that you must be scared because you can't stay ing the house.  You can RUN away or ENTER the house again, what do you do?";
                     this.stateCur = GameState.START;
                 }
@@ -125,7 +127,8 @@ export default class Game{
                     this.stateCur = GameState.STAIRS;
                     
                 }
-                else if (sInput.toLowerCase().match("entrance")){
+                else if (sInput.toLowerCase().match("entrance"))
+                {
                     sReply = "You are back at the entrance.  You can go up STAIRS, through the DOOR, follow the HALL or EXIT";
                     this.stateCur = GameState.ENTRANCE;                
                 else
@@ -222,7 +225,7 @@ export default class Game{
                 }
                 else
                 {
-                
+                    sReply = "You stand there paralyzed with fear.  Do you POKE the hive or LEAVE the room?";
                 }
                 break;
             case GameState.ROOM3:
