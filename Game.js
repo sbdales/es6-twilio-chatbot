@@ -130,8 +130,9 @@ export default class Game{
                     this.stateCur = GameState.ENTRANCE;                
                 else
                 {
-                
-                }                
+                    sReply = "You stand paralyzed with fear. do you gor around the CORNER, open the DOOR or go back to the ENTRANCE?";
+                }
+                break;
             case GameState.HALL2:
                 if(sInput.toLowerCase().match("sliding"))
                 {
@@ -177,6 +178,7 @@ export default class Game{
                 {
                     sReply = "You stand there paralyzed with fear, do you SIT, go through the SLIDING door, or the SWINGING?";
                 }
+                break;
             case GameState.HALL3:
                 if(sInput.toLowerCase().match("back"))
                 {
@@ -207,6 +209,7 @@ export default class Game{
                 {
                     sReply = "You stand there paralyzed with fear, do you open door ONE, TWO, THREE, FOUR, or go BACK?"; 
                 }
+                break;
             case GameState.ROOM2:
                 if(sInput.toLowerCase().match("poke"))
                 {
@@ -221,6 +224,7 @@ export default class Game{
                 {
                 
                 }
+                break;
             case GameState.ROOM3:
                 if(sInput.toLowerCase().match("check"))
                 {
@@ -235,6 +239,7 @@ export default class Game{
                 {
                     sReply = "You stand there paralyzed with fear, do you CHECK out the glitter or go BACK?";
                 }
+                break;
             case GameState.ROOM4:
                 if(sInput.toLowerCase().match("search"))
                 {
@@ -249,6 +254,7 @@ export default class Game{
                 {
                     sReply = "You stand there paralyzed with fear, do you SEARCH or go BACK to the hall";
                 }
+                break;
             case GameState.ROOM5:
                 if(sInput.toLowerCase().match("push"))
                 {
@@ -263,6 +269,7 @@ export default class Game{
                 {
                     sReply = "You stand there paralyzed with fear, do you PUSH harder or GIVE up";
                 }
+                break;
             case GameState.STAIRS:
                 if(sInput.toLowerCase().match("downstairs"))
                 {
@@ -278,6 +285,7 @@ export default class Game{
                 {
                     sReply = "You stand there paralyzed with fear, do you go DOWNSTAIRS or CLOSE the door?";   
                 }
+                break;
             case GameState.BASEMENT:
                 if(sInput.toLowerCase().match("room"))
                 {
@@ -298,6 +306,7 @@ export default class Game{
                 {
                     sReply = "You stand paralyzed with fear.  Do you open the storm DOORS, enter the ROOM or go BACK upstairs?";   
                 }
+                break;
             case GameState.BROOM:
                 if(sInput.toLowerCase().match("sit"))
                 {
@@ -308,6 +317,7 @@ export default class Game{
                     sReply = "You return to the bottom of the stairs.  You can go in the ROOM, open the storm DOORS or go BACK upstairs.";
                     this.stateCur = GameState.BASEMENT;
                 }
+                break;
             case GameState.BACKYARD:
                 if(sInput.toLowerCase().match("GATE"))
                 {
@@ -318,11 +328,8 @@ export default class Game{
                     sReply = "You are back in the basement.  You can go BACK upstairs, enter the ROOM or through the storm DOORS?";
                     this.stateCur = GameState.BASEMENT;
                 }
-            case GameState.EXIT:
-                if(sInput.toLowerCase().match(""))
-                {
-                    
-                }
+                break;
+
         }
         return(sReply);
     }
